@@ -1,4 +1,4 @@
-```pipeline {
+pipeline {
     agent { label 'devops1-jafar' }
 
     stages {
@@ -50,4 +50,4 @@
         
         
     }
-}```
+}
