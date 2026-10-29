@@ -1,10 +1,10 @@
 pipeline {
-    agent { label 'devops1-zakaria' }
+    agent { label 'devops1-jafar' }
 
     stages {
         stage('Pull SCM') {
             steps {
-                git branch: 'main', url: 'https://github.com/zaxrmdn/simple-apps.git'
+                git branch: 'main', url: 'https://github.com/muhammadjs3112/simple-apps.git'
             }
         }
         
@@ -21,6 +21,7 @@ pipeline {
             steps {
                 sh'''
                 cd apps
+                npm test
                 npm run test:coverage
                 '''
             }
@@ -33,8 +34,8 @@ pipeline {
                 sonar-scanner \
                 -Dsonar.projectKey=simple-apps \
                 -Dsonar.sources=. \
-                -Dsonar.host.url=http://172.23.13.196:9000 \
-                -Dsonar.token=sqp_4c4da067248353e77f369cae13cdc4fefecdb896
+                -Dsonar.host.url=http://172.23.13.92:9000 \
+                -Dsonar.token=sqp_3d001c364af39cc9b31b3290872384c275cc0f3e
                 '''
             }
         }
